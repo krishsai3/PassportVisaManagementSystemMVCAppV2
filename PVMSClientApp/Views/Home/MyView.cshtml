@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_PresentMaster.cshtml";
+    @Styles.Render("~/Styles/StyleSheet5.css");
+}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#pdfButton").click(function () {
+                window.location.href = "../Home/GeneratePdf";
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <section class="home">
+    </section>
+    <button id="pdfButton">Generate PDF</button>
+</body>
+

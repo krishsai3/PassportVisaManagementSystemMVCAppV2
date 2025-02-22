@@ -1,0 +1,181 @@
+﻿@model PVMSClientApp.Models.PassportId
+@{
+    Layout = "~/Views/Shared/_PresentMaster.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: url('../../images/passportBg1.jpg') no-repeat;
+            background-size: cover;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .passport-photo img {
+            height: 130px;
+            vertical-align: top;
+        }
+
+        .info {
+            display: inline-block;
+        }
+
+        .passport-photo {
+            display: inline;
+            margin: 20px;
+        }
+
+        /*.passport-data {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: flex-start;
+        }*/
+
+
+
+        .label {
+            font-weight: bolder;
+            font-size: small;
+            margin: 0px 3px 3px 3px;
+        }
+
+        .value {
+            display: block;
+            margin: 0px 3px 8px 3px;
+            font-family: "Courier New", monospace;
+            letter-spacing: 2px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #000;
+        }
+
+        .info-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .info-item {
+            display: inline;
+        }
+
+        .submit-button {
+            padding: 8px 20px;
+            background-color: #3c07a6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-decoration: none;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: smaller;
+            font-weight: normal;
+            font-family: "Montserrat", sans-serif;
+        }
+
+            .submit-button:hover {
+                color: #3c07a6;
+                background-color: white;
+                border: 2px solid #3c07a6;
+            }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#pdfButton").click(function () {
+                window.location.href = "../Home/GeneratePdf";
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p><strong>भारत गणराज्य</strong></p>
+        <p><strong>REPUBLIC OF INDIA</strong></p>
+        <div class="passport-data">
+            <div class="passport-photo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj6bWgNIwJN0dvsgnYIsGuExDL9FLUDIw0xuORZARex7NgC7SLacOgmEp8vp5ECNQzu2o&usqp=CAU" alt="Passport Photo" />
+            </div>
+            <div class="info">
+                <div class="info-item">
+                    <div class="info-block">
+                        <span class="label">Type</span>
+                        <span class="label">Country Code</span>
+                        <span class="label">Passport No</span>
+                    </div>
+                    <div class="info-block">
+                        <span class="value">@Model.type</span>
+                        <span class="value">@Model.countryCode</span>
+                        <span class="value">@Model.passportNo</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-block">
+                        <span class="label">Surname:</span>
+                        <span class="label">Given Name(s)</span>
+                    </div>
+                    <div class="info-block">
+                        <span class="value">@Model.surname</span>
+                        <span class="value">@Model.givenName</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-block">
+                        <span class="label">Nationality</span>
+                        <span class="label" style="margin-right:20px">Gender</span>
+                        <span class="label">Date of Birth</span>
+                    </div>
+                    <div class="info-block">
+                        <span class="value">@Model.nationality</span>
+                        <span class="value">@Model.gender</span>
+                        <span class="value">@Model.dob</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-block">
+                        <span class="label">Place of Birth</span>
+                        <span class="label">Place of Issue</span>
+                    </div>
+                    <div class="info-block">
+                        <span class="value">@Model.placeOfBirth</span>
+                        <span class="value">@Model.placeOfIssue</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-block">
+                        <span class="label">Date of Issue</span>
+                        <span class="label">Date of Expiry</span>
+                    </div>
+                    <div class="info-block">
+                        <span class="value" style="margin-right:10px">@Model.doi</span>
+                        <span class="value">@Model.doe</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+    <button id="pdfButton" class="submit-button">
+        Print
+    </button>
+    <script>
+
+    </script>
+</body>
+</html>
